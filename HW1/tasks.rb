@@ -201,7 +201,6 @@ p "13 Дан целочисленный массив. Осуществить ц�
 p  arr = Array.new(10) { rand(-100...100) }
    arr = arr.rotate()
 
-
 p "Left shifted array = #{arr}"
 p "---------------------------------------------------------------------------"
 
@@ -214,82 +213,97 @@ p "---------------------------------------------------------------------------"
 
 p "25 Дан целочисленный массив. Преобразовать его, вставив перед каждым положительным элементом нулевой элемент."
 
-p nums = Array.new(10) { rand(-100...100) }
-zeroElem=nums.first
-arr=[]
-nums.each do |num|
-    if num>0
-      arr.push(zeroElem)
-      arr.push(num)
-    else
-        arr.push(num)
-      
+def insertBeforePositive
+    p nums = Array.new(10) { rand(-100...100) }
+    zeroElem=nums.first
+    arr=[]
+    nums.each do |num|
+        if num>0
+          arr.push(zeroElem)
+          arr.push(num)
+        else
+            arr.push(num)
+          
+            end
         end
+    
+    return "modified array = #{arr}"
+        
     end
-
-p "modified array = #{arr}"
+    
+p insertBeforePositive()
 p "---------------------------------------------------------------------------"
 
 p "26 Дан целочисленный массив. Преобразовать его, вставив перед каждым отрицательным элементом нулевой элемент."
 
-p nums = Array.new(10) { rand(-100...100) }
-zeroElem=nums.first
-arr=[]
-nums.each do |num|
-    if num<0
-      arr.push(zeroElem)
-      arr.push(num)
-    else
-        arr.push(num)
-      
+def insertBeforeNegative
+    p nums = Array.new(10) { rand(-100...100) }
+    zeroElem=nums.first
+    arr=[]
+    nums.each do |num|
+        if num<0
+          arr.push(zeroElem)
+          arr.push(num)
+        else
+            arr.push(num)
+          
+            end
         end
-    end
+    
+return "modified array = #{arr}" 
+end
 
-p "modified array = #{arr}"
+p insertBeforeNegative()
 p "---------------------------------------------------------------------------"
 
 p "27 Дан целочисленный массив. Преобразовать его, вставив после каждого положительного элемента нулевой элемент."
 
-p nums = Array.new(10) { rand(-100...100) }
-zeroElem=nums.first
-arr=[]
-nums.each do |num|
-    if num>0
-      arr.push(num)
-      arr.push(zeroElem)
-      
-    else
-        arr.push(num)
-      
+def insertAfterPositive
+    p nums = Array.new(10) { rand(-100...100) }
+    zeroElem=nums.first
+    arr=[]
+    nums.each do |num|
+        if num>0
+          arr.push(num)
+          arr.push(zeroElem)
+          
+        else
+            arr.push(num)
+          
+            end
         end
+        return "modified array = #{arr}"
+        
     end
-
-p "modified array = #{arr}"
+    p insertAfterPositive()
 p "---------------------------------------------------------------------------"
 
 p "28 Дан целочисленный массив. Преобразовать его, вставив после каждого отрицательного элемента нулевой элемент."
 
-p  nums = Array.new(10) { rand(-100...100) }
-zeroElem=nums.first
-arr=[]
-nums.each do |num|
-    if num<0
-      arr.push(num)
-      arr.push(zeroElem)
-      
-    else
-        arr.push(num)
-      
+def insertAfterNegative
+    p nums = Array.new(10) { rand(-100...100) }
+    zeroElem=nums.first
+    arr=[]
+    nums.each do |num|
+        if num<0
+          arr.push(num)
+          arr.push(zeroElem)
+          
+        else
+            arr.push(num)
+          
+            end
         end
-    end
+return "modified array = #{arr}"   
+end
+p insertAfterNegative()
+
 p "modified array = #{arr}"
 p "---------------------------------------------------------------------------"
 
 p "65 Дан целочисленный массив. Вывести вначале все его четные элементы, а затем - нечетные"
-
 p arr = Array.new(10) { rand(-100...100) } 
-arr=arr.sort.partition(&:even?).inject(:concat)
-
+arr = arr.sort.partition(&:even?).inject(:concat)
 
 p "modified array = #{arr}"
 p "---------------------------------------------------------------------------"
@@ -297,7 +311,7 @@ p "---------------------------------------------------------------------------"
 p "66 Дан целочисленный массив. Вывести вначале все его нечетные элементы, а затем - четные"
 p arr = Array.new(10) { rand(-100...100) } 
  
- arr = arr.sort.partition(&:odd?).inject(:concat)
+arr = arr.sort.partition(&:odd?).inject(:concat)
 
 p "modified array = #{arr}"
 p "---------------------------------------------------------------------------"
@@ -310,11 +324,9 @@ min_elements_count = arr.count(arr.min)
 p "min elements count = #{min_elements_count}"
 p "---------------------------------------------------------------------------"
 
-
 p "40 Дан целочисленный массив. Найти количество максимальных элементов."
 p arr = Array.new(10) { rand(-100...100) } 
 
-arr = [1, 4, -9, 8, 8, 3, 8]
 max_elements_count = arr.count(arr.max)
 
 p "max elements count = #{max_elements_count}"
@@ -330,7 +342,6 @@ p "---------------------------------------------------------------------------"
 p "42 Дан целочисленный массив. Найти минимальный нечетный элемент."
 
 p arr = Array.new(10) { rand(-100...100) } 
-arr = [1, 4, -9, 8, -7, 3, 6]
 
 p "Min odd element = #{arr.select{|i| i.odd?}.min}"
 p "---------------------------------------------------------------------------"
@@ -338,7 +349,6 @@ p "---------------------------------------------------------------------------"
 p "43 Дан целочисленный массив. Найти максимальный четный элемент."
 p arr = Array.new(10) { rand(-100...100) } 
 
-p arr = Array.new(10) { rand(-100...100) } 
 p "Max even element = #{arr.select{|i| i.even?}.max}"
  
 p "---------------------------------------------------------------------------"
