@@ -1,48 +1,25 @@
 p "77 Дано целое число. Найти сумму его цифр."
-p number = 123
+p number = rand(100..500)
 
-def sumOfDigits(number = 123)
-    sum = 0
-    while number > 0
-        digit = number % 10
-        sum += digit
-        number /= 10
-    end
-    return sum
-end
-
-p "Sum of digits = #{sumOfDigits()}"
+p "Sum of digits = #{number.digits.inject(:+)}"
 p "---------------------------------------------------------------------------" 
 
 p "78 Дано целое число. Найти произведение его цифр."
-p number = 456
+p number = rand(100..500)
 
-def mulOfDigits(number = 456)
-    mul = 1
-    while number > 0
-        digit = number % 10
-        mul *= digit
-        number /= 10
-    end
-    return mul
-end
-
-p "Multiplication of digits = #{mulOfDigits()}"
+p "Multiplication of digits = #{number.digits.inject(:*)}"
 p "---------------------------------------------------------------------------" 
 
 p "29 Дан целочисленный массив. Упорядочить его по возрастанию."
-
 p arr = Array.new(10) { rand(-100...100) }
 
 p"Ascending sorted array = #{arr.sort}"
-
 p "---------------------------------------------------------------------------" 
 
 p "30 Дан целочисленный массив. Упорядочить его по убыванию."
 p  arr = Array.new(10) { rand(-100...100) }
 
 p "Descending sorted array = #{arr.sort { |a, b| b <=> a }}"
-
 p "---------------------------------------------------------------------------" 
 
 p "1 Дан целочисленный массив. Необходимо вывести вначале его элементы с четными индексами, а затем - с нечетными."
@@ -68,7 +45,6 @@ p "Elements with even indexes: #{res[:even_index].join(', ')}."
 
 p "---------------------------------------------------------------------------"
 
- 
 p "84 Дано натуральное число N. Найти результат следующего произведения 1*2*…*N."
 p "N = 5"
 
