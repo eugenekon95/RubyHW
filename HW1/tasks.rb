@@ -206,10 +206,10 @@ p "25 Дан целочисленный массив. Преобразовать
 
 def insertBeforePositive
     p nums = Array.new(10) { rand(-100...100) }
-    zeroElem=nums.first
+    zeroElem = 0                              #Завдання 25-28 не зовсім зрозуміло нульовий елемент це 0 чи перший елемент массиву
     arr=[]
     nums.each do |num|
-        if num>0
+        if num > 0
           arr.push(zeroElem)
           arr.push(num)
         else
@@ -226,10 +226,10 @@ p "26 Дан целочисленный массив. Преобразовать
 
 def insertBeforeNegative
     p nums = Array.new(10) { rand(-100...100) }
-    zeroElem=nums.first
+    zeroElem = 0
     arr=[]
     nums.each do |num|
-        if num<0
+        if num < 0
           arr.push(zeroElem)
           arr.push(num)
         else
@@ -247,10 +247,10 @@ p "27 Дан целочисленный массив. Преобразовать
 
 def insertAfterPositive
     p nums = Array.new(10) { rand(-100...100) }
-    zeroElem=nums.first
+    zeroElem = 0
     arr=[]
     nums.each do |num|
-        if num>0
+        if num > 0
           arr.push(num)
           arr.push(zeroElem)
         else
@@ -266,10 +266,10 @@ p "28 Дан целочисленный массив. Преобразовать
 
 def insertAfterNegative
     p nums = Array.new(10) { rand(-100...100) }
-    zeroElem=nums.first
+    zeroElem = 0
     arr=[]
     nums.each do |num|
-        if num<0
+        if num < 0
           arr.push(num)
           arr.push(zeroElem)
         else
@@ -359,7 +359,7 @@ p "---------------------------------------------------------------------------"
 
 p "95 Дан целочисленный массив и число К. Вывести количество элементов, меньших К."
 p arr = Array.new(10) { rand(-100...100) }
-K=rand(10) 
+K = rand(10) 
 p "K = #{K}" 
 
 p "Result = #{arr.select{|i| i<K}.count}"
