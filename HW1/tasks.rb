@@ -497,7 +497,7 @@ def powElements
   p arr = Array.new(10) { rand(-100...100) }
   k = rand(10) 
   p "K = #{k}" 
-  return "Result = #{arr.any?{ |el| el < k }}"
+  return "Result = #{arr.any?{ |el| el > k }}"
   end
   
  p elementBigger()
