@@ -190,16 +190,12 @@ p "26 Дан целочисленный массив. Преобразовать
 
 def insertBeforeNegative
     p nums = Array.new(10) { rand(-100...100) }
-    zeroElem = 0
     arr=[]
-    nums.each do |num|
-        if num < 0
-          arr.push(zeroElem)
-          arr.push(num)
-        else
-            arr.push(num)
-            end
-        end
+    nums.each do |e|
+      arr << 0 if e < 0
+      arr << e
+    end
+        
     
   return "modified array = #{arr}" 
 end
@@ -211,35 +207,27 @@ p "27 Дан целочисленный массив. Преобразовать
 
 def insertAfterPositive
     p nums = Array.new(10) { rand(-100...100) }
-    zeroElem = 0
     arr=[]
-    nums.each do |num|
-        if num > 0
-          arr.push(num)
-          arr.push(zeroElem)
-        else
-            arr.push(num)
-            end
+    nums.each do |e|
+      arr << e
+      arr << 0 if e > 0
         end
-      return "modified array = #{arr}"
-    end
-    p insertAfterPositive()
+    
+  return "modified array = #{arr}" 
+end
+
+p insertAfterPositive()
 p "---------------------------------------------------------------------------"
 
 p "28 Дан целочисленный массив. Преобразовать его, вставив после каждого отрицательного элемента нулевой элемент."
 
 def insertAfterNegative
-    p nums = Array.new(10) { rand(-100...100) }
-    zeroElem = 0
-    arr=[]
-    nums.each do |num|
-        if num < 0
-          arr.push(num)
-          arr.push(zeroElem)
-        else
-            arr.push(num)
-            end
-        end
+  p nums = Array.new(10) { rand(-100...100) }
+  arr=[]
+  nums.each do |e|
+    arr << e
+    arr << 0 if e < 0
+      end
   return "modified array = #{arr}"   
 end
 p insertAfterNegative()
