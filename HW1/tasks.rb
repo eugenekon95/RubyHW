@@ -427,18 +427,18 @@ p "---------------------------------------------------------------------------"
 p "79 Дан целочисленный массив. Возвести в квадрат отрицательные элементы и в третью степень - положительные. Нулевые элементы - не изменять."
 
 def powElements
-    p arr = Array.new(10) { rand(-10...10) }
-    arr.each do |el|
-        index = arr.index(el)
-        if el < 0 
-          arr[index] = el**2
-        end
-        if el > 0 
-            arr[index] = el**3
-          end   
-     end
-    return "Modified array = #{arr}"
-    end
+  p arr = Array.new(10) { rand(-10...10) }
+  arr.each_with_index do |el,i|
+  if el < 0
+      arr[i] = el**2
+  elsif el > 0
+      arr[i] = el**3
+  else
+      arr[i] = 0
+  end
+  end
+  return "Modified array = #{arr}"
+  end
 
  p powElements()
  p "---------------------------------------------------------------------------"
