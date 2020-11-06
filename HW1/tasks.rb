@@ -174,17 +174,12 @@ p "---------------------------------------------------------------------------"
 p "25 Дан целочисленный массив. Преобразовать его, вставив перед каждым положительным элементом нулевой элемент."
 
 def insertBeforePositive
-    p nums = Array.new(10) { rand(-100...100) }
-    zeroElem = 0                              #Завдання 25-28 не зовсім зрозуміло нульовий елемент це 0 чи перший елемент массиву
-    arr=[]
-    nums.each do |num|
-        if num > 0
-          arr.push(zeroElem)
-          arr.push(num)
-        else
-            arr.push(num)
-            end
-        end
+    p nums = Array.new(10) { rand(-100...100) }   
+    arr = []
+    nums.each do |e|
+      arr << 0 if e > 0
+      arr << e
+    end
     return "modified array = #{arr}"   
     end
     
