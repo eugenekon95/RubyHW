@@ -1,95 +1,122 @@
-class Pet
-    attr_accessor :animal, :name, :health, :satiety, :mood, :stamina, :power, :sleepiness, :intelect, :purity, :agility
-    def initialize(animal = "dog", name = "Black",  health = 15, satiety = 15, mood = 15, stamina = 15, power = 15, sleepiness = 15, intelect = 5, purity = 5, agility = 5)
-        @animal = animal
-        @name = name
-        @health = health
-        @satiety = satiety
-        @mood = mood
-        @stamina = stamina
-        @power = power
-        @sleepiness = sleepiness
-        @intelect = intelect
-        @purity = purity
-        @agility = agility
-       
+class Animal
+  attr_accessor :animal, :name
+  def initialize(animal, name)
+    @animal = animal
+    @name = name
 
-    end
     def voice
-        case @animal
-        when 'dog'
-          'bark'
-        when 'cat'
-          'meow'
-        when 'raven'
-          'croak'
-        when'monkey'
-            'whoop'
-        
-        else 'hello'
-        end
-        end
-        
-    #----------user actions----------
+      case @animal
+      when 'dog'
+        'bark'
+      when 'cat'
+        'meow'
+      when 'raven'
+        'croak'
+      when'monkey'
+          'whoop'
+      
+      else 'hello'
+      end
+      end
+  end
+end
 
-    def feed
-    p "You are feeding #{self.name}"
-    @satiety += rand(6)
+
+
+
+class Pet < Animal
+  attr_accessor :health, :mood, :hunger, :sleeping, :stamina, :agility, :intelect, :purity
+  
+  def initialize(animal, name, health, mood, hunger, sleeping, stamina, agility, intelect, purity)
+    super(animal,name)
+    @health = health
+    @mood = mood
+    @hunger = hunger
+    @sleeping = sleeping
+    @stamina = stamina
+    @agility = agility
+    @intelect = intelect
+    @purity = purity
+
+   
+  end
+
+  #----------user actions----------
+  def feed
+    p "You are feeding #{@name}"
+    @hunger += rand(6)
     end
+    
     def wash
-    p "You are washing #{self.name}"
+    p "You are washing #{@name}"
     @purity += rand(6)
-        
+    @mood -= rand(6)
     end
-
+    
     def train
-    p "You are training #{self.name}"
+    p "You are training #{@name}"
     @agility += rand(6)
     @intelect += rand(6)
     @power += rand(6)
     @stamina -= rand(10)
-    @satiety -= rand(10)
-    @sleepiness -= rand(6)
+    @hunger -= rand(10)
+    @sleeping -= rand(6)
     @mood -= rand(6)
     end
-
+    
     def play
+    p "You are playing with #{@name}"
     @mood += rand(6)
     @stamina -= rand(10)
-    @satiety -= rand(10)
-    @sleepiness -= rand(6)
-    @power -= rand(10)
-        
+    @hunger -= rand(10)
+    @sleeping -= rand(6)
+    
     end
+
     def sleep
-        @mood += rand(6)
-        @stamina += rand(10)
-        @satiety += rand(10)
-        @sleepiness += rand(6)
-        @power += rand(10) 
+    @mood += rand(6)
+    @stamina += rand(10)
+    @hunger += rand(10)
+    @sleeping += rand(6)
     end
 
     def walk
-        
+    @stamina += rand(10)
+    @hunger += rand(10)
+    @sleeping -= rand(6)
     end
 
-    def catch
-        
-    end
     def search
-        
+    @stamina -= rand(10)
+    @intelect += rand(6)
     end
-
-    def bite
-        
-    end
-
+    
     def status
-        
+      puts " #{@name}  status
+      
+      -----------------------------------------------------------------------------------------------------
+      |health| = #{@health}   |hunger| = #{@hunger}      |purity| = #{@purity}       |agility| = #{@purity}        
+      |stamina| = #{@stamina} |sleeping| = #{@sleeping}  |intelect| = #{@intelect}   |mood| = #{@mood}
+      ----------------------------------------------------------------------------------------------------- "
+      
     end
 
-   end
-julia = Pet.new("dog", "Julia")
-p julia
+    def spectate
+      #randomEvent()
+      #pastTime()
+    end
+
+
+end
+
+
+julia = Pet.new("cat", "Julia", 10, 10, 10, 10, 10, 10, 10, 10)
+p julia.feed
+p julia.status
+
+
+
+
+
       
       
