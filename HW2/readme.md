@@ -1,6 +1,7 @@
-<h1>Tamagochi "My Pet" console game</h1>
-<ol><li>Clone repository using git --clone</li>
-<li>For launch you need run tamagotchi.rb file in your terminal<li>
-<li>Than just follow instructions in your terminal<li>
-</ol>
-<p>Enjoy!</p>
+# Tamagochi "My Pet" console game
+
+  - Clone repository using git --clone
+  - For launch you need run tamagotchi.rb file in your terminal
+  - Than just follow instructions in your terminal
+
+Enjoy
