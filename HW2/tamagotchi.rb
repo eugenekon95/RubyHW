@@ -46,6 +46,7 @@ class Pet < Animal
     p "You are feeding #{@name}"
     @hunger += rand(6)
     pastTime()
+    checkPet()
     return p"Characteristics after event : Hunger = #{hunger}"
     end
     
@@ -54,6 +55,7 @@ class Pet < Animal
     @purity += rand(6)
     @mood -= rand(6)
     pastTime()
+    checkPet()
     return p"Characteristics after event : Purity = #{purity}  Mood: = #{mood}" 
     end
     
@@ -67,6 +69,7 @@ class Pet < Animal
     @mood -= rand(6)
     @purity -= rand(6)
     pastTime()
+    checkPet()
 
     return puts"Characteristics after event : 
     Agility = #{@agility}  Mood: = #{@mood}
@@ -84,6 +87,11 @@ class Pet < Animal
     @hunger -= rand(10)
     @sleeping -= rand(6)
     pastTime()
+    checkPet()
+    return puts"Characteristics after event : 
+    Hunger = #{@hunger}  Mood: = #{@mood}
+    
+    Sleeping = #{@sleeping}  Stamina: = #{@stamina}"
     end
 
     def sleep
@@ -93,6 +101,7 @@ class Pet < Animal
     @hunger += rand(10)
     @sleeping += rand(6)
     pastTime()
+    checkPet()
 
     return puts"Characteristics after event : 
     Hunger = #{@hunger}  Mood: = #{@mood}
@@ -107,7 +116,6 @@ class Pet < Animal
     @sleeping -= rand(6)
     @purity -= rand(6)
     pastTime()
-
     return puts"Characteristics after event : 
     Hunger = #{@hunger}  Purity: = #{@purity}
     
@@ -119,16 +127,17 @@ class Pet < Animal
     @stamina -= rand(10)
     @intelect += rand(6)
     pastTime()
+    checkPet()
     return puts"Characteristics after event : 
     Stamina = #{@stamina}  Intelect: = #{@intelect}"
+
     end
     
     def status
-      puts " #{@name}  status
-      
+      puts " #{@name} 
       -----------------------------------------------------------------------------------------------------
-      |health| = #{@health}   |hunger| = #{@hunger}      |purity| = #{@purity}       |agility| = #{@purity}        
-      |stamina| = #{@stamina} |sleeping| = #{@sleeping}  |intelect| = #{@intelect}   |mood| = #{@mood}
+      |health| = #{@health}   |hunger| = #{@hunger}    |purity| = #{@purity}     |agility| = #{@purity}        
+      |stamina| = #{@stamina}  |sleeping| = #{@sleeping}  |intelect| = #{@intelect}   |mood| = #{@mood}
       ----------------------------------------------------------------------------------------------------- "
       
     end
@@ -137,6 +146,7 @@ class Pet < Animal
       p "You spectating on #{@name}"
       randomEvent()
       pastTime()
+      
     end
 
 #----------private methods----------
@@ -176,14 +186,114 @@ class Pet < Animal
       
     end
 
+    def hungry?
+      @hunger == 1
+    end
+
+    def sleepy?
+      @sleeping == 1
+    end
+
+    def bored?
+      @mood == 1
+    end
+
+    def tired?
+      @stamina == 1
+    end
+
+    def runnaway?
+     if  @purity || @hunger == 0
+       
+     end
+      
+      
+    end
+
+    def petIsDead
+     if @hunger == 0 || @purity == 0 || stamina == 0
+      puts "I`m dying goodbye"
+    end
+    end
+
+
+
+    def checkPet() # todo
+      puts('Feed me') if hungry?
+      puts('Play with me!') if bored?
+      puts('Freedom') if runnaway?
+      puts('I need rest!') if sleepy?
+      petIsDead()
+        
+      
+    end
+
 end
 
 
-julia = Pet.new("cat", "Julia", 10, 10, 10, 10, 10, 10, 10, 10)
 
 
-julia.search
-julia.status
+pet = Pet.new("cat", "Julia", 10, 10, 10, 10, 10, 10, 10, 10)
+
+
+
+def startGame
+  puts"--------------------"
+  p "MY PET GAME"
+  p "Choose Animal type"
+  animalType = gets.chomp
+  p "Choose Animal name"
+  animalName = gets.chomp
+  pet = Pet.new(animalType, animalName, 10, 10, 10, 10, 10, 10, 10, 10)
+
+
+  puts "---------------------------
+  Choose action
+ 1.feed             5.sleep
+ 2.wash             6.walk
+ 3.train            7.search
+ 4.play             8.status
+ 9.spectate         10.exit
+ Comand: "
+   command = gets.chomp().to_s
+    case command
+    when 'feed'
+      pet.feed
+    when 'wash'
+      pet.wash
+    when 'train'
+      pet.train
+    when 'play'
+      pet.play
+    when 'sleep'
+      pet.sleep
+    when 'walk'
+      pet.walk
+    when 'search'
+      pet.search
+    when 'status'
+      pet.status
+     when 'spectate'
+       pet.spectate
+     when 'exit'
+      
+    else
+      puts " Try Again "    
+    end
+   
+  
+    
+   
+   
+   
+  
+
+  puts"--------------------"
+  
+end
+
+startGame()
+
 
 
 
