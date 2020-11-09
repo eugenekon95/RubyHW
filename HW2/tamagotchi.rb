@@ -21,9 +21,6 @@ class Animal
   end
 end
 
-
-
-
 class Pet < Animal
   attr_accessor :health, :mood, :hunger, :sleeping, :stamina, :agility, :intelect, :purity
   
@@ -193,7 +190,7 @@ class Pet < Animal
     def sleepy?
       @sleeping == 1
     end
-
+    
     def bored?
       @mood == 1
     end
@@ -216,8 +213,6 @@ class Pet < Animal
     end
     end
 
-
-
     def checkPet() # todo
       puts('Feed me') if hungry?
       puts('Play with me!') if bored?
@@ -230,13 +225,6 @@ class Pet < Animal
 
 end
 
-
-
-
-pet = Pet.new("cat", "Julia", 10, 10, 10, 10, 10, 10, 10, 10)
-
-
-
 def startGame
   puts"--------------------"
   p "MY PET GAME"
@@ -246,7 +234,7 @@ def startGame
   animalName = gets.chomp
   pet = Pet.new(animalType, animalName, 10, 10, 10, 10, 10, 10, 10, 10)
 
-
+while true
   puts "---------------------------
   Choose action
  1.feed             5.sleep
@@ -276,10 +264,14 @@ def startGame
      when 'spectate'
        pet.spectate
      when 'exit'
+      exit
       
     else
       puts " Try Again "    
     end
+
+end
+  
    
   
     
