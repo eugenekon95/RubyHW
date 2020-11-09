@@ -1,4 +1,4 @@
-<h1>Tamagochi "My Pet" console game<h1>
+<h1>Tamagochi "My Pet" console game</h1>
 
 <ol>
 <li>Clone repository using git --clone</li>
