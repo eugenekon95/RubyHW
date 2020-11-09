@@ -94,7 +94,7 @@ class Pet < Animal
     p "#{@name} is sleeping "
     @mood += rand(6)
     @stamina += rand(10)
-    @hunger += rand(10)
+    @hunger -= rand(10)
     @sleeping += rand(6)
     pastTime()
     checkPet()
@@ -108,7 +108,7 @@ class Pet < Animal
   def walk
     p "#{@name} is walking "
     @stamina += rand(10)
-    @hunger += rand(10)
+    @hunger -= rand(10)
     @sleeping -= rand(6)
     @purity -= rand(6)
     pastTime()
@@ -140,6 +140,19 @@ class Pet < Animal
     p "You spectating on #{@name}"
     randomEvent()
     pastTime()
+  end
+
+  def help
+    puts "Tamagotchi MY PET methods"
+    p "Feed: Feeding the animal increases hunger property on random value"
+    p "Wash: Washing the animal increases purity property decreases mood on random value"
+    p "Train: Training the animal increases agility, intelect properties dicreases stamina hunger sleeping mood purity on random value"
+    p "Play: Playing with animal increases mood property decreases stamina hunger sleeping on random value"
+    p "Sleep: Animal sleep increases mood stamina sleeping decreases hunger on random value"
+    p "Walk: Animal walking decreases stamina hunger sleeping purity on random value" 
+    p "Walk: Animal train searching skill increases intelect decreases stamina on random value"
+    p "Status: Show animal status"
+    p "Spectate: Just spectating on animal" 
   end
 
   #----------private methods----------
@@ -233,6 +246,7 @@ def startGame
  3.train            7.search
  4.play             8.status
  9.spectate         10.exit
+ 11.help
  Comand: "
     command = gets.chomp().to_s
     case command
@@ -254,6 +268,8 @@ def startGame
       pet.status
     when 'spectate'
       pet.spectate
+    when 'help'
+      pet.help
     when 'exit'
       exit
 
