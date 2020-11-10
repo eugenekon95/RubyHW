@@ -42,7 +42,7 @@ class Pet < Animal
     p "You are feeding #{@name}"
     @hunger = @hunger + rand(6)
     pastTime()
-    checkPet()
+    
     return p "Characteristics after event : Hunger = #{@hunger}"
   end
 
@@ -51,7 +51,7 @@ class Pet < Animal
     @purity = @purity + rand(6)
     @mood = @mood + rand(6)
     pastTime()
-    checkPet()
+    
     return p "Characteristics after event : Purity = #{@purity}  Mood: = #{@mood}"
   end
 
@@ -60,12 +60,12 @@ class Pet < Animal
     @agility = @agility + rand(5)
     @intelect = @intelect + rand(5)
     @stamina = @stamina + rand(10)
-    @hunger = @hunger - rand(5)
+    @hunger = @hunger - rand(15)
     @sleeping = @sleeping - rand(5)
     @mood = @mood - rand(5)
     @purity = @purity - rand(5)
     pastTime()
-    checkPet()
+    
 
     return puts "Characteristics after event :
     
@@ -82,7 +82,7 @@ class Pet < Animal
     @hunger = @hunger - rand(5)
     @sleeping = @sleeping - rand(5)
     pastTime()
-    checkPet()
+    
     return puts "Characteristics after event :
     
     Hunger = #{@hunger}  Mood: = #{@mood}  Sleeping = #{@sleeping}  Stamina: = #{@stamina}"
@@ -94,10 +94,10 @@ class Pet < Animal
     p "#{@name} is sleeping "
     @mood = @mood + rand(5)
     @stamina = @stamina += rand(5)
-    @hunger = @hunger - rand(5)
-    @sleeping = @sleeping - rand(5)
+    @hunger = @hunger - rand(2)
+    @sleeping = @sleeping + rand(15)
     pastTime()
-    checkPet()
+    
 
     return puts "Characteristics after event :
     
@@ -125,7 +125,6 @@ class Pet < Animal
     @stamina = @stamina - rand(5)
     @intelect = @intelect + rand(5)
     pastTime()
-    checkPet()
     return puts "Characteristics after event :
     Stamina = #{@stamina}  Intelect: = #{@intelect}"
   end
@@ -161,9 +160,9 @@ class Pet < Animal
 
   def pastTime
     hours = rand(6)
-    @hunger = @hunger - rand(6)
-    @sleeping = @sleeping - rand(6)
-    @purity = @purity - rand(6)
+    @hunger = @hunger - rand(2)
+    @sleeping = @sleeping - rand(2)
+    @purity = @purity - rand(2)
     p "Past #{hours} hours"
     status()
     checkPet()
