@@ -48,8 +48,8 @@ class Pet < Animal
 
   def wash
     p "You are washing #{@name}"
-    @purity += rand(6)
-    @mood -= rand(6)
+    @purity = @purity + rand(6)
+    @mood = @mood + rand(6)
     pastTime()
     checkPet()
     return p "Characteristics after event : Purity = #{@purity}  Mood: = #{@mood}"
@@ -57,13 +57,13 @@ class Pet < Animal
 
   def train
     p "You are training #{@name}"
-    @agility += rand(5)
-    @intelect += rand(5)
-    @stamina -= rand(10)
-    @hunger -= rand(5)
-    @sleeping -= rand(5)
-    @mood -= rand(5)
-    @purity -= rand(5)
+    @agility = @agility + rand(5)
+    @intelect = @intelect + rand(5)
+    @stamina = @stamina + rand(10)
+    @hunger = @hunger - rand(5)
+    @sleeping = @sleeping - rand(5)
+    @mood = @mood - rand(5)
+    @purity = @purity - rand(5)
     pastTime()
     checkPet()
 
@@ -77,10 +77,10 @@ class Pet < Animal
 
   def play
     p "You are playing with #{@name}"
-    @mood += rand(5)
-    @stamina -= rand(5)
-    @hunger -= rand(5)
-    @sleeping -= rand(5)
+    @mood = @mood + rand(5)
+    @stamina = @stamina - rand(5)
+    @hunger = @hunger - rand(5)
+    @sleeping = @sleeping - rand(5)
     pastTime()
     checkPet()
     return puts "Characteristics after event :
@@ -92,10 +92,10 @@ class Pet < Animal
 
   def sleep
     p "#{@name} is sleeping "
-    @mood += rand(5)
-    @stamina += rand(5)
-    @hunger -= rand(5)
-    @sleeping += rand(5)
+    @mood = @mood + rand(5)
+    @stamina = @stamina += rand(5)
+    @hunger = @hunger - rand(5)
+    @sleeping = @sleeping - rand(5)
     pastTime()
     checkPet()
 
@@ -108,10 +108,10 @@ class Pet < Animal
 
   def walk
     p "#{@name} is walking "
-    @stamina += rand(5)
-    @hunger -= rand(5)
-    @sleeping -= rand(5)
-    @purity -= rand(5)
+    @stamina = @stamina + rand(5)
+    @hunger = @hunger - rand(5)
+    @sleeping = @sleeping - rand(5)
+    @purity = @purity - rand(5)
     pastTime()
     return puts "Characteristics after event :
 
@@ -122,8 +122,8 @@ class Pet < Animal
 
   def search
     p "#{@name} is searching "
-    @stamina -= rand(5)
-    @intelect += rand(5)
+    @stamina = @stamina - rand(5)
+    @intelect = @intelect + rand(5)
     pastTime()
     checkPet()
     return puts "Characteristics after event :
@@ -161,9 +161,9 @@ class Pet < Animal
 
   def pastTime
     hours = rand(6)
-    @hunger -= rand(10)
-    @sleeping -= rand(6)
-    @purity -= rand(6)
+    @hunger = @hunger - rand(6)
+    @sleeping = @sleeping - rand(6)
+    @purity = @purity - rand(6)
     p "Past #{hours} hours"
     status()
     checkPet()
@@ -174,21 +174,21 @@ class Pet < Animal
     case event
     when event == 1
       p "Rain is started #{@name} is very upset and running into pethouse"
-      @purity -= rand(10)
-      @sleeping -= rand(10)
-      @mood -= rand(10)
+      @purity = @purity - rand(10)
+      @sleeping = @sleeping - rand(10)
+      @mood = @mood - rand(10)
 
     when event == 2
       p "#{@name} broke your shoes and hide"
-      @purity -= rand(10)
-      @sleeping -= rand(10)
-      @mood += rand(10)
+      @purity = @purity - rand(10)
+      @sleeping = @sleeping - rand(10)
+      @mood = @mood + rand(20)
 
     when event == 3
       p "#{name} found old broken pet toy"
-      @purity -= rand(20)
-      @sleeping -= rand(20)
-      @mood += rand(20)
+      @purity = @purity - rand(20)
+      @sleeping = @sleeping - rand(20)
+      @mood = @mood + rand(10)
 
     else
       p "Nothing happens"
