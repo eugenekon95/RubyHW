@@ -95,7 +95,7 @@ class Pet < Animal
     p "#{@name} is sleeping "
     @mood = @mood + rand(5)
     @stamina = @stamina += rand(5)
-    @hunger = @hunger - rand(2)
+    @hunger = @hunger - rand(5)
     @sleeping = @sleeping + rand(15)
     pastTime()
     
@@ -189,6 +189,14 @@ class Pet < Animal
       @purity = @purity - rand(20)
       @sleeping = @sleeping - rand(20)
       @mood = @mood + rand(10)
+    when event == 4
+      p "#{name} trying to bite you"
+      @mood = @mood - rand(10)
+      @intelect = @intelect - rand(10)
+    when event == 5
+      p "#{name} going into your house"
+      @mood = @mood + rand(10)
+      @intelect = @intelect + rand(10)
 
     else
       p "Nothing happens"
@@ -232,7 +240,6 @@ class Pet < Animal
     puts('I need rest!') if sleepy?
     petIsDead()
   end
-
  
 end
 
