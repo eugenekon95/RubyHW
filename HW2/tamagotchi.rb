@@ -4,21 +4,20 @@ class Animal
   def initialize(animal, name)
     @animal = animal
     @name = name
-
-  
   end
+
   def voice
     case @animal
-    when "dog" 
+    when "dog"
       p "bark"
-    when "cat" 
-       p "meow"
-    when "raven" 
-       p "croak"
-    when "monkey" 
-       p "whoop"
+    when "cat"
+      p "meow"
+    when "raven"
+      p "croak"
+    when "monkey"
+      p "whoop"
 
-    else  p"hello"
+    else p "hello"
     end
   end
 end
@@ -134,8 +133,6 @@ class Pet < Animal
     pastTime()
   end
 
-  
-
   def help
     puts "Tamagotchi MY PET methods"
     p "Feed: Feeding the animal increases hunger property on random value"
@@ -242,7 +239,7 @@ def startGame
   p "Choose Animal name"
   animalName = gets.chomp.downcase
   pet = Pet.new(animalType, animalName, 10, 10, 10, 10, 10, 10, 10, 10)
-  p" #{animalType} #{animalName} was born"
+  p " #{animalType} #{animalName} was born"
 
   while true
     puts "
