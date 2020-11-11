@@ -5,19 +5,20 @@ class Animal
     @animal = animal
     @name = name
 
-    def voice
-      case @animal
-      when 'dog'
-        'bark'
-      when 'cat'
-        'meow'
-      when 'raven'
-        'croak'
-      when 'monkey'
-        'whoop'
+  
+  end
+  def voice
+    case @animal
+    when "dog" 
+      p "bark"
+    when "cat" 
+       p "meow"
+    when "raven" 
+       p "croak"
+    when "monkey" 
+       p "whoop"
 
-      else 'hello'
-      end
+    else  p"hello"
     end
   end
 end
@@ -133,6 +134,8 @@ class Pet < Animal
     pastTime()
   end
 
+  
+
   def help
     puts "Tamagotchi MY PET methods"
     p "Feed: Feeding the animal increases hunger property on random value"
@@ -224,10 +227,10 @@ class Pet < Animal
   end
 
   def checkPet() # todo
-    puts('Feed me') if hungry?
-    puts('Play with me!') if bored?
-    puts('Freedom') if runnaway?
-    puts('I need rest!') if sleepy?
+    puts("Feed me") if hungry?
+    puts("Play with me!") if bored?
+    puts("Freedom") if runnaway?
+    puts("I need rest!") if sleepy?
     petIsDead()
   end
 end
@@ -235,10 +238,11 @@ end
 def startGame
   p "MY PET GAME"
   p "Choose Animal type"
-  animalType = gets.chomp
+  animalType = gets.chomp.downcase
   p "Choose Animal name"
-  animalName = gets.chomp
+  animalName = gets.chomp.downcase
   pet = Pet.new(animalType, animalName, 10, 10, 10, 10, 10, 10, 10, 10)
+  p" #{animalType} #{animalName} was born"
 
   while true
     puts "
@@ -247,32 +251,37 @@ def startGame
  2.wash             6.walk
  3.train            7.search
  4.play             8.status
- 9.spectate         10.exit
- 11.help
+ 9.spectate         10.voice
+ 11.help            12.exit
+ 13.clear
  Comand: "
-    command = gets.chomp().to_s
+    command = gets.chomp()
     case command
-    when 'feed'
+    when "feed"
       pet.feed
-    when 'wash'
+    when "wash"
       pet.wash
-    when 'train'
+    when "train"
       pet.train
-    when 'play'
+    when "play"
       pet.play
-    when 'sleep'
+    when "sleep"
       pet.sleep
-    when 'walk'
+    when "walk"
       pet.walk
-    when 'search'
+    when "search"
       pet.search
-    when 'status'
+    when "status"
       pet.status
-    when 'spectate'
+    when "spectate"
       pet.spectate
-    when 'help'
+    when "voice"
+      pet.voice
+    when "help"
       pet.help
-    when 'exit'
+    when "clear"
+      system "cls"
+    when "exit"
       exit
 
     else
