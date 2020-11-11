@@ -36,14 +36,13 @@ class Pet < Animal
     @intelect = intelect
     @purity = purity
   end
-  
 
   #----------user actions----------
   def feed
     p "You are feeding #{@name}"
     @hunger = @hunger + rand(6)
     pastTime()
-    
+
     return p "Characteristics after event : Hunger = #{@hunger}"
   end
 
@@ -52,7 +51,7 @@ class Pet < Animal
     @purity = @purity + rand(6)
     @mood = @mood + rand(6)
     pastTime()
-    
+
     return p "Characteristics after event : Purity = #{@purity}  Mood: = #{@mood}"
   end
 
@@ -66,14 +65,12 @@ class Pet < Animal
     @mood = @mood - rand(5)
     @purity = @purity - rand(5)
     pastTime()
-    
 
     return puts "Characteristics after event :
-    
+
     Agility = #{@agility}  Mood: = #{@mood}  Intelect = #{@intelect}  Stamina: = #{@stamina}
-    
+
     Hunger = #{@hunger}  Sleeping: = #{@sleeping} Purity = #{@purity}"
-    
   end
 
   def play
@@ -83,12 +80,10 @@ class Pet < Animal
     @hunger = @hunger - rand(5)
     @sleeping = @sleeping - rand(5)
     pastTime()
-    
+
     return puts "Characteristics after event :
-    
+
     Hunger = #{@hunger}  Mood: = #{@mood}  Sleeping = #{@sleeping}  Stamina: = #{@stamina}"
-    
-   
   end
 
   def sleep
@@ -98,13 +93,10 @@ class Pet < Animal
     @hunger = @hunger - rand(5)
     @sleeping = @sleeping + rand(15)
     pastTime()
-    
 
     return puts "Characteristics after event :
-    
+
     Hunger = #{@hunger}  Mood: = #{@mood} Sleeping = #{@sleeping}  Stamina: = #{@stamina}"
-    
-    
   end
 
   def walk
@@ -117,8 +109,6 @@ class Pet < Animal
     return puts "Characteristics after event :
 
     Hunger = #{@hunger}  Purity: = #{@purity} Sleeping = #{@sleeping}  Stamina: = #{@stamina}"
-
-    
   end
 
   def search
@@ -150,10 +140,10 @@ class Pet < Animal
     p "Train: Training the animal increases agility, intelect properties dicreases stamina hunger sleeping mood purity on random value"
     p "Play: Playing with animal increases mood property decreases stamina hunger sleeping on random value"
     p "Sleep: Animal sleep increases mood stamina sleeping decreases hunger on random value"
-    p "Walk: Animal walking decreases stamina hunger sleeping purity on random value" 
-    p "Walk: Animal train searching skill increases intelect decreases stamina on random value"
+    p "Walk: Animal walking decreases stamina hunger sleeping purity on random value"
+    p "Search: Animal train searching skill increases intelect decreases stamina on random value"
     p "Status: Show animal status"
-    p "Spectate: Just spectating on animal" 
+    p "Spectate: Just spectating on animal"
   end
 
   #----------private methods----------
@@ -225,7 +215,7 @@ class Pet < Animal
   end
 
   def petIsDead
-    if @hunger < 0 && @purity < 0 && stamina <0 
+    if @hunger < 0 && @purity < 0 && stamina < 0
       puts "I`m dying goodbye"
       puts "Game Over"
       exit
@@ -240,12 +230,9 @@ class Pet < Animal
     puts('I need rest!') if sleepy?
     petIsDead()
   end
- 
 end
 
-
 def startGame
-
   p "MY PET GAME"
   p "Choose Animal type"
   animalType = gets.chomp
