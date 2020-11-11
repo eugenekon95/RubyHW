@@ -215,7 +215,7 @@ class Pet < Animal
   end
 
   def petIsDead
-    if @hunger < 0 && @purity < 0 && stamina < 0
+    if @hunger < 0 && @purity < 0 && @stamina < 0
       puts "I`m dying goodbye"
       puts "Game Over"
       exit
