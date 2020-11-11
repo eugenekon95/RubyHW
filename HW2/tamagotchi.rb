@@ -36,6 +36,7 @@ class Pet < Animal
     @intelect = intelect
     @purity = purity
   end
+  
 
   #----------user actions----------
   def feed
@@ -216,7 +217,7 @@ class Pet < Animal
   end
 
   def petIsDead
-    if @hunger <= 0 && @purity <= 0 && stamina <=0 
+    if @hunger < 0 && @purity < 0 && stamina <0 
       puts "I`m dying goodbye"
       puts "Game Over"
       exit
@@ -231,7 +232,10 @@ class Pet < Animal
     puts('I need rest!') if sleepy?
     petIsDead()
   end
+
+ 
 end
+
 
 def startGame
 
@@ -240,7 +244,6 @@ def startGame
   animalType = gets.chomp
   p "Choose Animal name"
   animalName = gets.chomp
-
   pet = Pet.new(animalType, animalName, 10, 10, 10, 10, 10, 10, 10, 10)
 
   while true
@@ -279,7 +282,7 @@ def startGame
       exit
 
     else
-      puts " Try Again "
+      puts " Hint typo string command example feed"
     end
 
   end
