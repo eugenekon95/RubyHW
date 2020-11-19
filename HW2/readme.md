@@ -8,6 +8,7 @@
 
 ## Instalation with bundler
 ```
-gem install pet_html
+gem install bundle
+
 
 Enjoy
