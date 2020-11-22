@@ -1,6 +1,7 @@
 require_relative "pet/Animal.rb"
 require_relative "pet/Pet.rb"
 
+
 def start_game
   p "MY PET GAME"
   pet_init()
@@ -52,6 +53,8 @@ def start_game
   end
 end
 
+
+
 def pet_init()
   p "Choose Animal type"
   animal = gets.chomp
@@ -60,5 +63,8 @@ def pet_init()
   @pet = Pet.new(animal, name)
   p "#{animal} #{name} was born"
 end
+
+
+
 
 start_game()
