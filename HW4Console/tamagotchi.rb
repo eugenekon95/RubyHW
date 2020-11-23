@@ -7,6 +7,7 @@ require_relative "users/Superadmin.rb"
 def game
   p "MY PET GAME"
   log_in()
+  @user.save()
   @user.start_game()
   @user.pet_init()
 end

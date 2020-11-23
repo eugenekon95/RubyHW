@@ -66,7 +66,13 @@ class User
     animal = gets.chomp
     p "Choose Animal name"
     name = gets.chomp
-    @pet = Pet.new(animal, name)
+    username = @username
+    @pet = Pet.new(animal, name, username)
     p "#{animal} #{name} was born"
+  end
+
+  def save
+    yaml = YAML.dump(self)
+    File.open("./database/users.yml", 'w') { |file| file.puts(yaml) }
   end
 end

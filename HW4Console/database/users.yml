@@ -1,0 +1,4 @@
+--- !ruby/object:User
+username: guest
+password: tseug
+role: user

@@ -1,17 +1,20 @@
+require "yaml"
 require_relative "Animal.rb"
-class Pet < Animal
-  attr_accessor :health, :mood, :hunger, :sleeping, :stamina, :agility, :intelect, :purity
 
-  def initialize(animal, name, health = 10, mood = 10, hunger = 10, sleeping = 10, stamina = 10, agility = 10, intelect = 10, purity = 10)
+class Pet < Animal
+  attr_accessor :health, :mood, :hunger, :sleeping, :stamina, :agility, :intelect, :purity, :user
+
+  def initialize(animal, name, username)
     super(animal, name)
-    @health = health
-    @mood = mood
-    @hunger = hunger
-    @sleeping = sleeping
-    @stamina = stamina
-    @agility = agility
-    @intelect = intelect
-    @purity = purity
+    @health = 10
+    @mood = 10
+    @hunger = 10
+    @sleeping = 10
+    @stamina = 10
+    @agility = 10
+    @intelect = 10
+    @purity = 10
+    @user = username
   end
 
   #----------user actions----------
@@ -19,6 +22,7 @@ class Pet < Animal
     p "You are feeding #{@name}"
     @hunger = @hunger + rand(6)
     p "Characteristics after event : Hunger = #{@hunger}"
+    save()
     pastTime()
   end
 
@@ -282,5 +286,10 @@ class Pet < Animal
     puts("Freedom") if runnaway?
     puts("I need rest!") if sleepy?
     petIsDead()
+  end
+
+  def save
+    yaml = YAML.dump(self)
+    File.open("./database/pets.yml", 'w') { |file| file.puts(yaml) }
   end
 end
