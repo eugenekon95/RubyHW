@@ -149,13 +149,7 @@ class Pet < Animal
     self.agility = 10
     self.intelect = 10
     self.mood = 10
-
-    
   end
-
-
-
-
 
   private
 

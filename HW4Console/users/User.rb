@@ -7,6 +7,7 @@ class User
     def initialize(username, password)
       @username = username
       @password = password
+      @role = 'user'
       
       
       
