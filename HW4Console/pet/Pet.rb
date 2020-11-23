@@ -118,6 +118,45 @@ class Pet < Animal
   end
 
   #----------private methods----------
+
+  def change_animal_type
+    puts "What is new animal?"
+    new_animal = gets.strip.downcase
+    self.animal = new_animal
+  end
+
+  def change_animal_name
+    puts "new name?"
+    new_name = gets.strip.downcase
+    self.name = new_name
+  end
+
+  def kill_pet
+    puts "Your pet is dead"
+    self.hunger = 0
+    self.purity = 0
+    self.stamina = 0
+    self.health = 0
+  end
+
+  def reset_stats
+    puts "Your pet stats is reset to defaults"
+    self.hunger = 10
+    self.purity = 10
+    self.stamina = 10
+    self.health = 10
+    self.sleeping = 10
+    self.agility = 10
+    self.intelect = 10
+    self.mood = 10
+
+    
+  end
+
+
+
+
+
   private
 
   def pastTime

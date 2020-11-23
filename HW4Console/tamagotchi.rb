@@ -1,56 +1,15 @@
 require_relative "pet/Animal.rb"
 require_relative "pet/Pet.rb"
+require_relative "users/User.rb"
 
 
-def start_game
+
+def game
   p "MY PET GAME"
-  pet_init()
-
-  while true
-    puts "
-    Choose action
-   1.feed             5.sleep
-   2.wash             6.walk
-   3.train            7.search
-   4.play             8.status
-   9.spectate         10.voice
-   11.help            12.exit
-   13.clear
-   Comand: "
-    command = gets.chomp()
-    case command
-    when "feed"
-      @pet.feed
-    when "wash"
-      @pet.wash
-    when "train"
-      @pet.train
-    when "play"
-      @pet.play
-    when "sleep"
-      @pet.sleep
-    when "walk"
-      @pet.walk
-    when "search"
-      @pet.search
-    when "status"
-      @pet.status
-    when "spectate"
-      @pet.spectate
-    when "voice"
-      @pet.voice
-    when "help"
-      @pet.help
-    when "clear"
-      system "cls"
-    when "exit"
-      exit
-
-    else
-      puts " Hint typo string command example feed"
-    end
-
-  end
+  user_init()
+  @user.start_game()
+  @user.pet_init()
+  
 end
 
 
@@ -64,7 +23,23 @@ def pet_init()
   p "#{animal} #{name} was born"
 end
 
+def user_init()
+  p "Choose username"
+  username = gets.chomp
+  p "Choose password"
+  password = gets.chomp
+  @user = User.new(username, password)
+  p " New user #{username}  was created"
+end
+
+def log_in
+  
+  
+end
 
 
 
-start_game()
+
+
+ 
+game()
