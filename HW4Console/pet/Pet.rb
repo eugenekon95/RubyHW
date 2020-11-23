@@ -151,6 +151,50 @@ class Pet < Animal
     self.mood = 10
   end
 
+
+  def change_pet_stats
+    p "enter characteristic you want to change"
+    characteristic = gets.chomp
+    case characteristic
+  when 'hunger'
+    p "enter new hunger value"
+    value = gets.strip.to_i
+    self.hunger = value
+
+
+  when 'purity'
+    p "enter new purity value"
+    value = gets.strip.to_i
+    self.purity = value
+  when 'mood'
+    p "enter new mood value"
+    value = gets.strip.to_i
+    self.mood = value
+  when 'stamina'
+    p "enter new stamina value"
+    value = gets.strip.to_i
+    self.stamina = value
+  when 'sleeping'
+    p "enter new sleeping value"
+    value = gets.strip.to_i
+    self.sleeping = value
+  when 'agility'
+    p "enter new agility value"
+    value = gets.strip.to_i
+    self.agility = value
+  when 'intelect'
+    p "enter new intelect value"
+    value = gets.strip.to_i
+    self.intelect = value
+  when 'health'
+    p "enter new health value"
+    value = gets.strip.to_i
+    self.health = value
+    else
+      p "nothing changes"
+    end
+  end
+
   private
 
   def pastTime
@@ -226,7 +270,7 @@ class Pet < Animal
   end
 
   def petIsDead
-    if @hunger < 0 && @purity < 0 && @stamina < 0
+    if @hunger <= 0 && @purity <= 0 && @stamina <= 0
       puts "I`m dying goodbye"
       puts "Game Over"
       exit

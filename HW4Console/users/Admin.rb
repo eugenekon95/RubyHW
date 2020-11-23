@@ -50,7 +50,7 @@ class Admin < User
         @pet.help
       when "change name"
         @pet.change_animal_name
-      when "change name"
+      when "change type"
         @pet.change_animal_type
       when "clear"
         system "cls"
