@@ -63,6 +63,4 @@ class Admin < User
 
     end
   end
-
-  
 end

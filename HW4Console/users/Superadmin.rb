@@ -1,8 +1,16 @@
 class Superadmin < User
-  def initialize(username = "Superadmin", password = "nimdarepus")
+  attr_accessor :username
+
+  def initialize(username = "superadmin", password = "nimdarepus")
     @username = username
     @password = password
     @role = 'superadmin'
+  end
+
+  def change_username
+    puts "new username?"
+    new_username = gets.strip.downcase
+    self.username = new_username
   end
 
   def start_game
@@ -63,7 +71,8 @@ class Superadmin < User
         @pet.reset_stats
       when "change stats"
         @pet.change_stats
-
+      when "change username"
+        change_username
 
       when "clear"
         system "cls"
