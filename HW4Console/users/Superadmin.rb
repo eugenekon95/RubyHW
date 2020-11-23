@@ -73,6 +73,7 @@ class Superadmin < User
         @pet.change_stats
       when "change username"
         change_username
+        save
 
       when "clear"
         system "cls"

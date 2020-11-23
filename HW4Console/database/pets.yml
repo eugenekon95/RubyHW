@@ -1,12 +1,12 @@
 --- !ruby/object:Pet
-animal: monkey
-name: Joe
+animal: dog
+name: Black
 health: 10
 mood: 10
-hunger: 12
+hunger: 14
 sleeping: 10
 stamina: 10
 agility: 10
 intelect: 10
 purity: 10
-user: guest
+user: superadmin
