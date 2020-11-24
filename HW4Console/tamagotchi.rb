@@ -20,11 +20,11 @@ def log_in
   if is_admin?
     @user = Admin.new(@username, @password)
     puts "Hello Admin"
-    
+
   elsif is_superadmin?
     @user = Superadmin.new(@username, @password)
     puts "Hello Superadmin"
-    
+
   else
     @user = User.new(@username, @password)
     puts "Hello User"
@@ -38,6 +38,5 @@ end
 def is_superadmin?
   @username == 'superadmin' && @password == 'nimdarepus'
 end
-
 
 game

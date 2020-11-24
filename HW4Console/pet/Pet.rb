@@ -63,7 +63,7 @@ class Pet < Animal
 
     puts "Characteristics after event :
       Hunger = #{@hunger}  Mood: = #{@mood}  Sleeping = #{@sleeping}  Stamina: = #{@stamina}"
-      save()
+    save()
     pastTime()
   end
 
@@ -302,7 +302,7 @@ class Pet < Animal
     end
   end
 
-  def checkPet() 
+  def checkPet()
     puts("Feed me") if hungry?
     puts("Play with me!") if bored?
     puts("Freedom") if runnaway?
