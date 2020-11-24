@@ -11,6 +11,7 @@ class Superadmin < User
     puts "new username?"
     new_username = gets.strip.downcase
     self.username = new_username
+    p "Username  changed"
   end
 
   def start_game
@@ -34,13 +35,12 @@ class Superadmin < User
      3. Change pet stats
      4. Kill pet
      5. Reset stats
-     6. Set pet stats
-     7. Change username
+     6. Change username
      Comand: "
       command = gets.chomp()
       case command
       when "feed"
-        @pet.feed()
+        @pet.feed
       when "wash"
         @pet.wash
       when "train"
@@ -70,7 +70,7 @@ class Superadmin < User
       when "reset"
         @pet.reset_stats
       when "change stats"
-        @pet.change_stats
+        @pet.change_pet_stats
       when "change username"
         change_username
         save

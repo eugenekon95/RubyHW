@@ -106,7 +106,7 @@ class Pet < Animal
 
   def status
     puts "      #{@animal}      #{@name}
-        |health| = #{@health}   |hunger| = #{@hunger}       |purity| = #{@purity}     |agility| = #{@purity}
+        |health| = #{@health}   |hunger| = #{@hunger}       |purity| = #{@purity}     |agility| = #{@agility}
         |stamina| = #{@stamina}  |sleeping| = #{@sleeping}  |intelect| = #{@intelect}   |mood| = #{@mood}
         "
   end
@@ -168,42 +168,50 @@ class Pet < Animal
   end
 
   def change_pet_stats
-    p "enter characteristic you want to change"
+    p "enter characteristic you want to change [health hunger mood purity stamina agility intelect sleeping]"
     characteristic = gets.chomp
     case characteristic
     when 'hunger'
       p "enter new hunger value"
       value = gets.strip.to_i
       self.hunger = value
+      p "Hunger value changed"
 
     when 'purity'
       p "enter new purity value"
       value = gets.strip.to_i
       self.purity = value
+      p "Purity value changed"
     when 'mood'
       p "enter new mood value"
       value = gets.strip.to_i
       self.mood = value
+      p "Mood value changed"
     when 'stamina'
       p "enter new stamina value"
       value = gets.strip.to_i
       self.stamina = value
+      p "Stamina value changed"
     when 'sleeping'
       p "enter new sleeping value"
       value = gets.strip.to_i
       self.sleeping = value
+      p "Sleeping value changed"
     when 'agility'
       p "enter new agility value"
       value = gets.strip.to_i
       self.agility = value
+      p "Agility value changed"
     when 'intelect'
       p "enter new intelect value"
       value = gets.strip.to_i
       self.intelect = value
+      p "Intelect value changed"
     when 'health'
       p "enter new health value"
       value = gets.strip.to_i
       self.health = value
+      p "Health value changed"
     else
       p "nothing changes"
     end
