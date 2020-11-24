@@ -19,16 +19,15 @@ def log_in
   @password = gets.chomp
   if is_admin?
     @user = Admin.new(@username, @password)
-    p "New user #{@username}  was created"
-  end
-  if is_superadmin?
+    puts "Hello Admin"
+    
+  elsif is_superadmin?
     @user = Superadmin.new(@username, @password)
-    p "New user #{@username}  was created"
-  end
-
-  if is_user?
+    puts "Hello Superadmin"
+    
+  else
     @user = User.new(@username, @password)
-    p "New user #{@username}  was created"
+    puts "Hello User"
   end
 end
 
@@ -40,8 +39,5 @@ def is_superadmin?
   @username == 'superadmin' && @password == 'nimdarepus'
 end
 
-def is_user?
-  @username == 'guest' && @password == 'tseug'
-end
 
 game()

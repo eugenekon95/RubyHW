@@ -24,7 +24,7 @@ class Admin < User
          1. Change animal type
          2. Change animal name
          Comand: "
-      command = gets.chomp()
+      command = gets.chomp
       case command
       when "feed"
         @pet.feed()

@@ -28,7 +28,7 @@ class User
       command = gets.chomp()
       case command
       when "feed"
-        @pet.feed()
+        @pet.feed
       when "wash"
         @pet.wash
       when "train"
