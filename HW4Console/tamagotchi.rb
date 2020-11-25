@@ -9,7 +9,7 @@ def game
   log_in
   @user.save
   @user.start_game
-  @user.pet_init
+ 
 end
 
 def log_in

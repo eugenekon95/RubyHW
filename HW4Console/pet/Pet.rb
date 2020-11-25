@@ -20,88 +20,87 @@ class Pet < Animal
   #----------user actions----------
   def feed
     p "You are feeding #{@name}"
-    @hunger += rand(5)
-    @health += rand (5)
+    @hunger += rand(1..5)
+    @health += rand (1..5)
     p "Characteristics after event : Hunger = #{@hunger}"
-    save()
-    pastTime()
+    save
+    pastTime
   end
 
   def wash
     p "You are washing #{@name}"
-    @purity += rand(5)
-    @mood > 0 ? @mood -= rand(5) : @mood = 0
+    @purity += rand(1..5)
     p "Characteristics after event : Purity = #{@purity}  Mood: = #{@mood}"
-    save()
-    pastTime()
+    save
+    pastTime
   end
 
   def train
     p "You are training #{@name}"
-    @agility += rand(5)
-    @intelect += rand(5)
-    @stamina += rand(5)
-    @hunger > 0 ? @hunger -= rand(5) : @hunger = 0
-    @sleeping > 0 ? @sleeping -= rand(5) : @sleeping = 0
-    @mood > 0 ? @mood -= rand(5) : @mood = 0
-    @purity > 0 ? @purity -= rand(5) : @purity = 0
-    @health > 0 ? @health -= rand(5) : @health = 0
+    @agility += rand(1..5)
+    @intelect += rand(1..5)
+    @stamina += rand(1..5)
+    @hunger > 0 ? @hunger -= rand(1..5) : @hunger = 0
+    @sleeping > 0 ? @sleeping -= rand(1..5) : @sleeping = 0
+    @mood > 0 ? @mood -= rand(1..5) : @mood = 0
+    @purity > 0 ? @purity -= rand(1..5) : @purity = 0
+    @health > 0 ? @health -= rand(1..5) : @health = 0
 
     puts "Characteristics after event :
       Agility = #{@agility}  Mood: = #{@mood}  Intelect = #{@intelect}  Stamina: = #{@stamina}
       Hunger = #{@hunger}  Sleeping: = #{@sleeping} Purity = #{@purity}"
-    save()
-    pastTime()
+    save
+    pastTime
   end
 
   def play
     p "You are playing with #{@name}"
-    @mood += rand(5)
-    @stamina > 0 ? @stamina -= rand(5) : @stamina = 0
-    @hunger > 0 ? @hunger -= rand(5) : @hunger = 0
-    @sleeping > 0 ? @sleeping -= rand(5) : @sleeping = 0
+    @mood += rand(1..5)
+    @stamina > 0 ? @stamina -= rand(1..5) : @stamina = 0
+    @hunger > 0 ? @hunger -= rand(1..5) : @hunger = 0
+    @sleeping > 0 ? @sleeping -= rand(1..5) : @sleeping = 0
 
     puts "Characteristics after event :
       Hunger = #{@hunger}  Mood: = #{@mood}  Sleeping = #{@sleeping}  Stamina: = #{@stamina}"
-    save()
-    pastTime()
+    save
+    pastTime
   end
 
   def sleep
     p "#{@name} is sleeping "
-    @mood += rand(5)
-    @stamina += rand(5)
-    @hunger > 0 ? @hunger -= rand(5) : @hunger = 0
-    @sleeping += rand(5)
+    @mood += rand(1..5)
+    @stamina += rand(1..5)
+    @hunger > 0 ? @hunger -= rand(1..5) : @hunger = 0
+    @sleeping += rand(1..5)
 
     puts "Characteristics after event :
     Hunger = #{@hunger}  Mood: = #{@mood} Sleeping = #{@sleeping}  Stamina: = #{@stamina}"
-    save()
-    pastTime()
+    save
+    pastTime
   end
 
   def walk
     p "#{@name} is walking "
-    @stamina += rand(5)
-    @hunger > 0 ? @hunger -= rand(5) : @hunger = 0
-    @sleeping > 0 ? @sleeping -= rand(5) : @sleeping = 0
-    @purity > 0 ? @purity -= rand(5) : @purity = 0
-    @health > 0 ? @health -= rand(5) : @health = 0
+    @stamina += rand(1..5)
+    @hunger > 0 ? @hunger -= rand(1..5) : @hunger = 0
+    @sleeping > 0 ? @sleeping -= rand(1..5) : @sleeping = 0
+    @purity > 0 ? @purity -= rand(1..5) : @purity = 0
+    @health > 0 ? @health -= rand(1..5) : @health = 0
 
     puts "Characteristics after event :
     Hunger = #{@hunger}  Purity: = #{@purity} Sleeping = #{@sleeping}  Stamina: = #{@stamina}"
-    save()
-    pastTime()
+    save
+    pastTime
   end
 
   def search
     p "#{@name} is searching "
-    @stamina > 0 ? @stamina -= rand(5) : @stamina = 0
-    @intelect += rand(5)
+    @stamina > 0 ? @stamina -= rand(1..5) : @stamina = 0
+    @intelect += rand(1..5)
     puts "Characteristics after event :
     Stamina = #{@stamina}  Intelect: = #{@intelect}"
-    save()
-    pastTime()
+    save
+    pastTime
   end
 
   def status
@@ -113,9 +112,9 @@ class Pet < Animal
 
   def spectate
     p "You spectating on #{@name}"
-    randomEvent()
-    save()
-    pastTime()
+    randomEvent
+    save
+    pastTime
   end
 
   def help
@@ -136,22 +135,21 @@ class Pet < Animal
   private
 
   def pastTime
-    hours = rand(5)
+    hours = rand(1..5)
     if hours == 0
       p "Past less than an hour"
     else
       p "Past #{hours} hours"
     end
 
-    @hunger > 0 ? @hunger -= rand(5) : @hunger = 0
-    @sleeping > 0 ? @sleeping -= rand(5) : @sleeping = 0
-    @purity > 0 ? @purity -= rand(5) : @purity = 0
-    status()
+    @sleeping > 0 ? @sleeping -= rand(1..2) : @sleeping = 0
+    @mood > 0 ? @mood -= rand(1..2) : @mood = 0
+    @purity > 0 ? @purity -= rand(1..2) : @purity = 0
     checkPet()
   end
 
   def randomEvent
-    event = rand(5)
+    event = rand(1..5)
     case event
     when event == 1
       p "Rain is started #{@name} is very upset and running into pethouse"
@@ -191,7 +189,7 @@ class Pet < Animal
   end
 
   def sleepy?
-    @sleeping <= 1
+    @sleeping <= 1 && @stamina <= 1
   end
 
   def bored?
@@ -212,7 +210,7 @@ class Pet < Animal
   end
 
   def petIsDead
-    if @hunger <= 0 && @health <= 0 && @stamina <= 0
+    if @hunger <= 0 && @health <= 0 
       puts "I`m dying goodbye"
       puts "Game Over"
       exit
@@ -226,7 +224,7 @@ class Pet < Animal
     puts("Freedom") if runnaway?
     puts("I need rest!") if sleepy?
     puts("I need shower!") if dirty?
-    petIsDead()
+    exit if petIsDead
   end
 
   def save

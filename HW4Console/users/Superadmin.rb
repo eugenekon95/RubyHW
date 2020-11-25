@@ -88,7 +88,7 @@ class Superadmin < Admin
 
   def start_game
     p "MY PET GAME"
-    pet_init()
+    pet_init
 
     while true
       puts "
@@ -109,7 +109,7 @@ class Superadmin < Admin
      5. Reset stats
      6. Change username
      Comand: "
-      command = gets.chomp()
+      command = gets.chomp
       case command
       when "feed"
         @pet.feed

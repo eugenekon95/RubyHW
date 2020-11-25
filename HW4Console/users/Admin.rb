@@ -9,19 +9,19 @@ class Admin < User
     puts "new name?"
     new_name = gets.strip.downcase
     @pet.name = new_name
-    save()
+    save
   end
 
   def change_animal_type
     puts "What is new animal?"
     new_animal = gets.strip.downcase
     @pet.animal = new_animal
-    save()
+    save
   end
 
   def start_game
     p "MY PET GAME"
-    pet_init()
+    pet_init
 
     while true
       puts "
@@ -41,7 +41,7 @@ class Admin < User
       command = gets.chomp
       case command
       when "feed"
-        @pet.feed()
+        @pet.feed
       when "wash"
         @pet.wash
       when "train"
