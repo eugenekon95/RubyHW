@@ -1,12 +1,12 @@
 --- !ruby/object:Pet
-animal: cat
-name: JJ
-health: 10
+animal: raven
+name: Black
+health: 14
 mood: 10
-hunger: 10
+hunger: 12
 sleeping: 10
 stamina: 10
 agility: 10
 intelect: 10
 purity: 10
-user: admin
+user: superadmin

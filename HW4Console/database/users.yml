@@ -1,4 +1,4 @@
---- !ruby/object:Admin
-username: admin
-password: nimda
-role: admin
+--- !ruby/object:Superadmin
+username: superadmin
+password: nimdarepus
+role: superadmin

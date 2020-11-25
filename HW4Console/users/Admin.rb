@@ -5,6 +5,20 @@ class Admin < User
     @role = 'admin'
   end
 
+  def change_animal_name
+    puts "new name?"
+    new_name = gets.strip.downcase
+    @pet.name = new_name
+    save()
+  end
+
+  def change_animal_type
+    puts "What is new animal?"
+    new_animal = gets.strip.downcase
+    @pet.animal = new_animal
+    save()
+  end
+
   def start_game
     p "MY PET GAME"
     pet_init()
@@ -49,10 +63,10 @@ class Admin < User
       when "help"
         @pet.help
       when "change name"
-        @pet.change_animal_name
+        change_animal_name
 
       when "change type"
-        @pet.change_animal_type
+        change_animal_type
 
       when "clear"
         system "cls"

@@ -1,4 +1,4 @@
-class Superadmin < User
+class Superadmin < Admin
   attr_accessor :username
 
   def initialize(username = "superadmin", password = "nimdarepus")
@@ -12,6 +12,78 @@ class Superadmin < User
     new_username = gets.strip.downcase
     self.username = new_username
     p "Username  changed"
+  end
+
+  def kill_pet
+    puts "Your pet is dead"
+    @pet.hunger = 0
+    @pet.purity = 0
+    @pet.stamina = 0
+    @pet.health = 0
+    puts "Game Over"
+    exit
+  end
+
+  def reset_stats
+    puts "Your pet stats is reset to defaults"
+    @pet.hunger = 10
+    @pet.purity = 10
+    @pet.stamina = 10
+    @pet.health = 10
+    @pet.sleeping = 10
+    @pet.agility = 10
+    @pet.intelect = 10
+    @pet.mood = 10
+  end
+
+  def change_pet_stats
+    p "enter characteristic you want to change [health hunger mood purity stamina agility intelect sleeping]"
+    characteristic = gets.chomp
+    case characteristic
+    when 'hunger'
+      p "enter new hunger value"
+      value = gets.strip.to_i
+      @pet.hunger = value
+      p "Hunger value changed"
+
+    when 'purity'
+      p "enter new purity value"
+      value = gets.strip.to_i
+      @pet.purity = value
+      p "Purity value changed"
+    when 'mood'
+      p "enter new mood value"
+      value = gets.strip.to_i
+      @pet.mood = value
+      p "Mood value changed"
+    when 'stamina'
+      p "enter new stamina value"
+      value = gets.strip.to_i
+      @pet.stamina = value
+      p "Stamina value changed"
+    when 'sleeping'
+      p "enter new sleeping value"
+      value = gets.strip.to_i
+      @pet.sleeping = value
+      p "Sleeping value changed"
+    when 'agility'
+      p "enter new agility value"
+      value = gets.strip.to_i
+      @pet.agility = value
+      p "Agility value changed"
+    when 'intelect'
+      p "enter new intelect value"
+      value = gets.strip.to_i
+      @pet.intelect = value
+      p "Intelect value changed"
+    when 'health'
+      p "enter new health value"
+      value = gets.strip.to_i
+      @pet.health = value
+      p "Health value changed"
+    else
+      p "nothing changes"
+    end
   end
 
   def start_game
@@ -62,15 +134,15 @@ class Superadmin < User
       when "help"
         @pet.help
       when "change name"
-        @pet.change_animal_name
+        change_animal_name
       when "change type"
-        @pet.change_animal_type
+        change_animal_type
       when "kill"
-        @pet.kill_pet
+        kill_pet
       when "reset"
-        @pet.reset_stats
+        reset_stats
       when "change stats"
-        @pet.change_pet_stats
+        change_pet_stats
       when "change username"
         change_username
         save
